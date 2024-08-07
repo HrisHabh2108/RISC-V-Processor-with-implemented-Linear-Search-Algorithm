@@ -3,10 +3,10 @@
 This README provides a detailed explanation of the pipe_MIPS32 Verilog module, which simulates a pipelined MIPS32 processor. The module consists of several stages: Instruction Fetch (IF), Instruction Decode (ID), Execute (EX), Memory (MEM), and Write Back (WB). The design incorporates essential control signals and handles different types of instructions.
 
 # Module Interface
-# Inputs
+**Inputs**
 clk1: Clock signal for the first phase of the pipeline.
 clk2: Clock signal for the second phase of the pipeline.
-# Registers
+**Registers**
 PC: Program Counter, holding the address of the next instruction.
 IF_ID, IF_ID_NPC, IF_ID_IR: Registers for the IF/ID pipeline stage.
 ID_EX_IR, ID_EX_NPC, ID_EX_A, ID_EX_B, ID_EX_Imm: Registers for the ID/EX pipeline stage.
