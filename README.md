@@ -27,6 +27,12 @@ TAKEN_BRANCH: Signal to indicate if a branch is taken.
 **Instruction Fetch (IF) Stage**  
 The IF stage is responsible for fetching the next instruction from memory. If a branch is taken, the instruction at the branch target address is fetched. Otherwise, the instruction at the current PC address is fetched.  
 **Instruction Decode (ID) Stage**  
-The ID stage decodes the instruction and reads the necessary register values. It also calculates the immediate value and determines the type of operation.
+The ID stage decodes the instruction and reads the necessary register values. It also calculates the immediate value and determines the type of operation.  
 **Execute (EX) Stage**  
 The EX stage performs the necessary arithmetic or logical operation based on the decoded instruction.  
+**Memory (MEM) Stage**  
+The MEM stage accesses memory for load and store instructions.  
+**Write Back (WB) Stage**  
+The WB stage writes the results back to the register file.  
+# Conclusion
+The pipe_MIPS32 module is a comprehensive representation of a pipelined MIPS32 processor. It includes all necessary stages and handles various instruction types, demonstrating fundamental concepts of computer architecture and pipeline processing.
