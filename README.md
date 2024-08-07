@@ -4,18 +4,18 @@ This README provides a detailed explanation of the pipe_MIPS32 Verilog module, w
 
 # Module Interface
 **Inputs** <br>
-clk1: Clock signal for the first phase of the pipeline.
-clk2: Clock signal for the second phase of the pipeline.
-**Registers**
-PC: Program Counter, holding the address of the next instruction.
-IF_ID, IF_ID_NPC, IF_ID_IR: Registers for the IF/ID pipeline stage.
-ID_EX_IR, ID_EX_NPC, ID_EX_A, ID_EX_B, ID_EX_Imm: Registers for the ID/EX pipeline stage.
-ID_EX_type, EX_MEM_type, MEM_WB_type: Registers for the type of operation in each stage.
-EX_MEM_IR, EX_MEM_ALUout, EX_MEM_B: Registers for the EX/MEM pipeline stage.
-EX_MEM_cond: Condition flag for branch instructions.
-MEM_WB_IR, MEM_WB_ALUout, MEM_WB_LMD: Registers for the MEM/WB pipeline stage.
-Reg[0:31]: Register file, containing 32 general-purpose registers.
-Mem[0:1023]: Memory, containing 1024 words.
+clk1: Clock signal for the first phase of the pipeline.  
+clk2: Clock signal for the second phase of the pipeline.  
+**Registers**  
+PC: Program Counter, holding the address of the next instruction.  
+IF_ID, IF_ID_NPC, IF_ID_IR: Registers for the IF/ID pipeline stage.  
+ID_EX_IR, ID_EX_NPC, ID_EX_A, ID_EX_B, ID_EX_Imm: Registers for the ID/EX pipeline stage.  
+ID_EX_type, EX_MEM_type, MEM_WB_type: Registers for the type of operation in each stage.  
+EX_MEM_IR, EX_MEM_ALUout, EX_MEM_B: Registers for the EX/MEM pipeline stage.  
+EX_MEM_cond: Condition flag for branch instructions.  
+MEM_WB_IR, MEM_WB_ALUout, MEM_WB_LMD: Registers for the MEM/WB pipeline stage.  
+Reg[0:31]: Register file, containing 32 general-purpose registers.  
+Mem[0:1023]: Memory, containing 1024 words.  
 # Parameters
 Instruction opcodes (e.g., ADD, SUB, AND, etc.)
 Instruction types (e.g., RR_ALU, RM_ALU, LOAD, STORE, BRANCH, HALT)
