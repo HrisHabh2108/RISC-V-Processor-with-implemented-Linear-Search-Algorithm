@@ -94,26 +94,28 @@ BRANCH:  begin
 end
 endcase
 end
+//...........MEM STAGE........
 always @(posedge clk2)
 if(HALTED ==0)
 begin
-MEM_WB_type<= EX_MEM_type;
+MEM_WB_type<= #2 EX_MEM_type;
 MEM_WB_IR <= #2 EX_MEM_IR;
 case (EX_MEM_type)
 RR_ALU,RM_ALU:
             MEM_WB_ALUout <=#2 EX_MEM_ALUout;
 LOAD:       MEM_WB_LMD  <=#2 Mem[EX_MEM_ALUout];
-STORE:   if(TAKEN_BRANCH==0)
+          STORE:   if(TAKEN_BRANCH==0) //Disable Write
             Mem[EX_MEM_ALUout]  <= #2 EX_MEM_B;
 endcase
 end
+//......WB STAGE.........
 always @(posedge clk1)
  begin
-if(TAKEN_BRANCH==0)
+if(TAKEN_BRANCH==0) //disable write if branch taken
 case(MEM_WB_type)
-RR_ALU :  Reg[MEM_WB_IR[15:11]]<=#2 MEM_WB_ALUout;
-RM_ALU:   Reg[MEM_WB_IR[20:16]]<=#2 MEM_WB_ALUout;
-LOAD:     Reg[MEM_WB_IR[20:16]]<=#2 MEM_WB_LMD;
+RR_ALU :  Reg[MEM_WB_IR[15:11]]<=#2 MEM_WB_ALUout; //rd
+RM_ALU:   Reg[MEM_WB_IR[20:16]]<=#2 MEM_WB_ALUout;//rt
+LOAD:     Reg[MEM_WB_IR[20:16]]<=#2 MEM_WB_LMD;//rt
 HALT:     HALTED<=#2 1'b1;
 endcase
 end
